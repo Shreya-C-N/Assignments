@@ -48,13 +48,13 @@ public class EmployeeDAOTest {
 	@Test
 	public void testSalarygreaterthan()throws Exception {
 		EmployeeDAO dao=new EmployeeDAO();
-		assertEquals(3, dao.getSalarygreaterthan(35000).size());
+		assertEquals(2, dao.getSalarygreaterthan(35000).size());
 	}
 	
 	@Test
 	public  void testSalarylessthan()throws Exception {
 		EmployeeDAO dao=new EmployeeDAO();
-		assertEquals(2, dao.getSalarylessthan(33000).size());
+		assertEquals(1, dao.getSalarylessthan(33000).size());
 	}
 	
 	@Test
