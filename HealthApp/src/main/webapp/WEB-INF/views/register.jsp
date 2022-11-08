@@ -7,7 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="/register" method="get">
+<center><h1>Registration Page</h1></center><br/>
+<h1>Enter required details</h1>
+<h1></h1>
+<form action="/register" method="post">
  <table>
 <tr>Name:</tr><br/>
 <tr><input name="name" type="text" /></tr><br/><br/>
@@ -22,7 +25,7 @@
 <tr>Confirm_Password:</tr><br/>
 <tr><input name="confirmpassword" type="text" /></tr><br/><br/>
 </table> 
-<input name="submit" value="register" type="submit"/>
+<input name="submit" value="Register" type="submit"/>
 </form>
 </body>
 </html>

@@ -1,28 +1,5 @@
 package com.valtech.health.app.config;
-/*
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.web.SecurityFilterChain;
 
-@EnableWebSecurity
-public class WebSecurityConfig {
-	@Bean
-	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
-		http.csrf().disable()
-		.authorizeHttpRequests()
-//	    .antMatchers("/","/user/**").hasAnyRole("USER")
-//	    .antMatchers("/admin/**").hasAnyRole("ADMIN")
-//	    .antMatchers(HttpMethod.DELETE).hasAnyRole("ADMIN")
-	    .antMatchers("/login").permitAll()
-	    .anyRequest().authenticated();
-	  //  http.httpBasic();
-	    http.formLogin().loginPage("/login").defaultSuccessUrl("/").failureUrl("/login");
-	    //http.formLogin().loginPage("/register").defaultSuccessUrl("/").failureUrl("/register");
-	    return http.build();
-	}
-}
-*/
 
 
 import org.springframework.context.annotation.Bean;
@@ -46,15 +23,15 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http)  throws Exception{
         http.csrf().disable();
+        http.headers().frameOptions().disable();
         
         
         http.authorizeRequests()
         .antMatchers("/register").anonymous()
         .antMatchers("/user").hasAnyRole("USER")
-       // .antMatchers("/seller").hasAnyRole("ADMIN","USER")
         .antMatchers("/register","/login","/logout","/resetUsers").permitAll()
-        .antMatchers("/deliveryPerson").hasAnyRole("USER").and().httpBasic();
-        
+       .and().httpBasic();
+       
         return http.build();
     }
     

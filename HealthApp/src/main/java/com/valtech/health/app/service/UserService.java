@@ -1,12 +1,11 @@
 package com.valtech.health.app.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import com.valtech.health.app.entity.User;
 
-import com.valtech.health.app.repostitory.UserRepository;
+public interface UserService {
 
-@Service
-public class UserService {
-	@Autowired
-    private UserRepository userRepository;
+	User createUser(User u);
+
+	void deleteUser(User user);
+
 }
