@@ -6,11 +6,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <body>
+<center><h1>PATIENT DETAILS</h1></center>
+
 <form action="/patientdetails" method="post">
 <table>
-<tr>Id:</tr><br/>
-<tr><input name="id" type="text" /></tr><br/><br/>
+
 <tr>Name:</tr><br/>
 <tr><input name="name" type="text" /></tr><br/><br/>
 <tr>Age:</tr><br/>
@@ -20,13 +22,14 @@
 <tr>Disease:</tr><br/>
 <tr><input name="disease" type="text" /></tr><br/><br/>
 <tr>Previous_History:</tr><br/>
-<tr><input name="previoushistory" type="text" /></tr><br/><br/>
+<tr><input name="previous_history" type="text" /></tr><br/><br/>
 <tr>Temperature:</tr><br/>
 <tr><input name="temperature" type="text" /></tr><br/><br/>
 <tr>Blood_Pressure:</tr><br/>
-<tr><input name="bloodpressure" type="text" /></tr><br/><br/>
+<tr><input name="blood_pressure" type="text" /></tr><br/><br/>
 <tr>Pulse_Rate:</tr><br/>
-<tr><input name="pulserate" type="text" /></tr><br/><br/>
-</table>
+<tr><input name="pulse_rate" type="text" /></tr><br/><br/>
+</table><br/>
+<input name="submit" value="SUBMIT" type="submit"/> 
 </body>
 </html>

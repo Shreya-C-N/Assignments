@@ -6,15 +6,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <body>
-<center><h1>WELCOME</h1></center>
-  <form action="/login" method="get">
-<input type="submit" name="submit" value="LOGIN"/><br/>
-</form>
-<h1> </h1>
- <form action="/register" method="get">
-<input type="submit" name="submit" value="REGISTER"/><br/>
+ <form action="/demo" method="get">
+<h1>Succesfully Submitted</h1>
 </form>
 </body>
 </html>

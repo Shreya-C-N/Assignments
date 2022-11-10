@@ -1,17 +1,9 @@
-package com.valtech.health.app.entity;
+package com.valtech.health.app.model;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
-@Entity
-public class PatientDetails {
-	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+public class PatientDetailsModel {
 	private int id;
-	@Column(unique = true)
 	private String name;
 	private int age;
 	private String bloodgroup;
@@ -22,26 +14,13 @@ public class PatientDetails {
 	private int pulse_rate;
 	
 	
-	
-	public PatientDetails() {
+	public PatientDetailsModel() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
 
-	public PatientDetails(String name, int age, String bloodgroup, String disease, String previous_history,
-			int temperature, int blood_pressure, int pulse_rate) {
-		super();
-		this.name = name;
-		this.age = age;
-		this.bloodgroup = bloodgroup;
-		this.disease = disease;
-		this.previous_history = previous_history;
-		this.temperature = temperature;
-		this.blood_pressure = blood_pressure;
-		this.pulse_rate = pulse_rate;
-	}
-
-	public PatientDetails(int id, String name, int age, String bloodgroup, String disease, String previous_history,
+	public PatientDetailsModel(int id, String name, int age, String bloodgroup, String disease, String previous_history,
 			int temperature, int blood_pressure, int pulse_rate) {
 		super();
 		this.id = id;
@@ -54,6 +33,21 @@ public class PatientDetails {
 		this.blood_pressure = blood_pressure;
 		this.pulse_rate = pulse_rate;
 	}
+
+
+	public PatientDetailsModel(String name, int age, String bloodgroup, String disease, String previous_history,
+			int temperature, int blood_pressure, int pulse_rate) {
+		super();
+		this.name = name;
+		this.age = age;
+		this.bloodgroup = bloodgroup;
+		this.disease = disease;
+		this.previous_history = previous_history;
+		this.temperature = temperature;
+		this.blood_pressure = blood_pressure;
+		this.pulse_rate = pulse_rate;
+	}
+
 
 	public int getId() {
 		return id;
@@ -85,15 +79,12 @@ public class PatientDetails {
 	public void setDisease(String disease) {
 		this.disease = disease;
 	}
-
 	public String getPrevious_history() {
 		return previous_history;
 	}
-
 	public void setPrevious_history(String previous_history) {
 		this.previous_history = previous_history;
 	}
-
 	public int getTemperature() {
 		return temperature;
 	}
@@ -112,5 +103,12 @@ public class PatientDetails {
 	public void setPulse_rate(int pulse_rate) {
 		this.pulse_rate = pulse_rate;
 	}
+	@Override
+	public String toString() {
+		return "PatientDetailsModel [id=" + id + ", name=" + name + ", age=" + age + ", bloodgroup=" + bloodgroup
+				+ ", disease=" + disease + ", previous_history=" + previous_history + ", temperature=" + temperature
+				+ ", blood_pressure=" + blood_pressure + ", pulse_rate=" + pulse_rate + "]";
+	}
+
 	
 }

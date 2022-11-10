@@ -11,12 +11,10 @@
 <center><h1>Login Page</h1></center><br/>
 <h1>Enter your Username and Password to proceed..</h1>
 <h2></h2>
- <form action="/login" method="post">
+ <form action="/doctorlogin" method="post">
 Username:<input name="username" type="text" /><br/><br/>
 Password:<input name="password" type="text" /><br/><br/>
 <input name="submit" value="LOGIN" type="submit"/> 
-
-
-
+</form>
 </body>
 </html>

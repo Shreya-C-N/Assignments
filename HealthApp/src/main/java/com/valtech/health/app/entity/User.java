@@ -108,5 +108,10 @@ public class User {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public static Object withPassword(String password) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

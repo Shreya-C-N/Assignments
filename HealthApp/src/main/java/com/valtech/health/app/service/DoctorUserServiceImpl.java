@@ -6,24 +6,25 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.stereotype.Service;
 
+import com.valtech.health.app.entity.DoctorUser;
 import com.valtech.health.app.entity.PatientDetails;
 import com.valtech.health.app.entity.User;
+import com.valtech.health.app.repostitory.DoctorUserRepository;
 
-import com.valtech.health.app.repostitory.UserRepository;
 @Service
-public class UserServiceImpl implements UserService{
+public class DoctorUserServiceImpl implements DoctorUserService{
 	
 	@Autowired
-	private UserRepository userRepository;
+	private DoctorUserRepository doctorUserRepository;
 	
-@Override
-	public User createUser(User u){
-		return userRepository.save(u);
+	@Override
+	public DoctorUser createDoctorUser(DoctorUser d1){
+		return doctorUserRepository.save(d1);
 		}
 
 @Override
-public void deleteUser(User user) {
-	userRepository.delete(user);
+public void deleteDoctorUser(DoctorUser d1){
+	doctorUserRepository.delete(d1);
 }
 	
 }

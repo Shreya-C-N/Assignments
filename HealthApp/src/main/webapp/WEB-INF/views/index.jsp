@@ -8,15 +8,15 @@
 </head>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <body>
-<center><h1>Login Page</h1></center><br/>
-<h1>Enter your Username and Password to proceed..</h1>
-<h2></h2>
- <form action="/login" method="post">
-Username:<input name="username" type="text" /><br/><br/>
-Password:<input name="password" type="text" /><br/><br/>
-<input name="submit" value="LOGIN" type="submit"/> 
+<center><h1>WELCOME</h1></center>
 
-
-
+<center><h3>WHO ARE YOU?</h3></center>
+<form action="/home" method="get">
+<input type="submit" name="submit" value="STAFF"/><br/>
+ </form>
+<h1> </h1>
+  <form action="/doctorhome" method="get"> 
+<input type="submit" name="submit" value="DOCTOR"/><br/>
+</form>
 </body>
 </html>

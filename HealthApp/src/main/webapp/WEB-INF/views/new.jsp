@@ -6,15 +6,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
-<body>
-<center><h1>WELCOME</h1></center>
-  <form action="/login" method="get">
-<input type="submit" name="submit" value="LOGIN"/><br/>
+<!--  <form action="/doctorlogin" method="post"> -->
+<h1>Login Successful</h1>
+
+ <form action="/list" method="get">
+<input name="submit" value="PATIENT'S DETAILS" type="submit"/> 
 </form>
-<h1> </h1>
- <form action="/register" method="get">
-<input type="submit" name="submit" value="REGISTER"/><br/>
+<br/><br/>
+ <form action="/doctor" method="get">
+<input name="submit" value="DOCTOR'S COMMENT" type="submit"/> 
 </form>
+<!-- </form> -->
 </body>
 </html>
