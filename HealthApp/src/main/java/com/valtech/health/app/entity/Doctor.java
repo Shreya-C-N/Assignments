@@ -13,29 +13,31 @@ public class Doctor {
 	private int id;
 	@Column(unique = true)
 	private String name;
+	private String patients_name;
 	private String doctor_comments;
-	
 	
 	public Doctor() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	
-	public Doctor(int id, String name, String doctor_comments) {
+
+	public Doctor(int id, String name, String patients_name, String doctor_comments) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.patients_name = patients_name;
 		this.doctor_comments = doctor_comments;
 	}
 
 
-	public Doctor(String name, String doctor_comments) {
+	public Doctor(String name, String patients_name, String doctor_comments) {
 		super();
 		this.name = name;
+		this.patients_name = patients_name;
 		this.doctor_comments = doctor_comments;
 	}
 
+	
 
 	public int getId() {
 		return id;
@@ -55,6 +57,20 @@ public class Doctor {
 	public void setDoctor_comments(String doctor_comments) {
 		this.doctor_comments = doctor_comments;
 	} 
-	
+
+	public String getPatients_name() {
+		return patients_name;
+	}
+
+
+	public void setPatients_name(String patients_name) {
+		this.patients_name = patients_name;
+	}
+
+	@Override
+	public String toString() {
+		return "Doctor [id=" + id + ", name=" + name + ", patients_name=" + patients_name + ", doctor_comments="
+				+ doctor_comments + "]";
+	}
 	
 }

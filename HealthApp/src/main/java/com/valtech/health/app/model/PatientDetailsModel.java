@@ -110,5 +110,6 @@ public class PatientDetailsModel {
 				+ ", blood_pressure=" + blood_pressure + ", pulse_rate=" + pulse_rate + "]";
 	}
 
+
 	
 }

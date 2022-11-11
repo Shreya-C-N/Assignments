@@ -14,12 +14,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.valtech.health.app.entity.Doctor;
 import com.valtech.health.app.entity.DoctorUser;
 import com.valtech.health.app.entity.PatientDetails;
 import com.valtech.health.app.entity.User;
 import com.valtech.health.app.model.DoctorUserModel;
+import com.valtech.health.app.model.PatientDetailsModel;
 import com.valtech.health.app.model.UserModel;
 import com.valtech.health.app.service.DoctorService;
 import com.valtech.health.app.service.DoctorServiceImpl;
@@ -31,7 +33,7 @@ import com.valtech.health.app.service.UserServiceImpl;
 
 @Controller
 public class HealthAppController {
-	
+
 	@Autowired
 	private UserServiceImpl usi;
 	
@@ -53,6 +55,10 @@ public class HealthAppController {
 	public String index() {
 		return "index";
 	}
+	@GetMapping("/aboutus")
+	public String aboutUS() {
+		return "aboutus";
+	}
 	@GetMapping("/home")//staff
 	public String home() {
 		return "home";
@@ -63,12 +69,21 @@ public class HealthAppController {
 		return "doctorhome";
 	}
 	
-    //@ResponseBody
+    @ResponseBody
 	@PostMapping("/login")//staff
 	public String loginUser(){
 		
 		return "new1";
 	}
+	
+/*	@ResponseBody
+	@PostMapping("/login")//staff
+	public String loginUser(@ModelAttribute UserModel userModel){
+		   if(usi.LoginValidator(userModel.getUsername())==1){
+	            return "new1";
+	        }
+		return "new1";
+	}*/
 	
 	@GetMapping("/login")
 	public String login(){
@@ -78,7 +93,7 @@ public class HealthAppController {
 	  //@ResponseBody
 		@PostMapping("/doctorlogin")//doctor
 		public String doctorLoginUser(){
-			
+		
 			return "new";
 		}
 		
@@ -93,6 +108,7 @@ public class HealthAppController {
 		if(userModel.getPassword().equals(userModel.getConfirmpassword())){
 	//	ModelAndView mv=new ModelAndView("login");
 		usi.createUser(u);
+		
 		return "login";
 		}
 		else
@@ -124,11 +140,13 @@ public class HealthAppController {
 	
 	@GetMapping("/patientdetails")
 	public String newpatientdetails(){
+		
 		return "patientdetails";
 	}
 	@PostMapping("/patientdetails")
 	public String patientdetails(@ModelAttribute PatientDetails p){
 		pdsi.createPatientDetails(p);
+		
 		return "demo";
 	}
 	
@@ -164,6 +182,25 @@ public class HealthAppController {
 		return "doctorlist"; // prefix/cars/listsuffix /WEB-INF/views/Cars/list.jsp
 	}
 		
+	@GetMapping("/demo")
+    public String index1() {
+        return "demo";
+    }
 
+
+
+@GetMapping("/new")
+    public String createnew() {
+        return "new";
+    }
+@GetMapping("/logout")
+public String logout(){
+    return "index";
+}
+
+@GetMapping("/new1")
+    public String createnew1() {
+        return "new1";
+    }
 	
 }
