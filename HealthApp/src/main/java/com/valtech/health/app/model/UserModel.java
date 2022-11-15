@@ -2,17 +2,24 @@ package com.valtech.health.app.model;
 
 import javax.persistence.Column;
 
+//import jakarta.validation.constraints.Email;
+//import jakarta.validation.constraints.NotEmpty;
+
 public class UserModel {
 	private int id;
+	// @NotEmpty
 	private String name;
 	private int number;
+	//  @NotEmpty(message = "Email should not be empty")
+	  //  @Email
 	private String email;
-	
+	// @NotEmpty
 	private String username;
+	// @NotEmpty(message = "Password should not be empty")
 	private String password;
 	private String confirmpassword;
 	
-	
+	   
 	
 	public UserModel() {
 		super();

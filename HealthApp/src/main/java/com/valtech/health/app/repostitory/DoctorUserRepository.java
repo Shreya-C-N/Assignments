@@ -8,4 +8,10 @@ import com.valtech.health.app.entity.DoctorUser;
 @Repository
 public interface DoctorUserRepository  extends JpaRepository<DoctorUser, Integer> {
 
+	DoctorUser findByEmail(String email);
+	
+	DoctorUser findByUsername(String username);
+	
+	DoctorUser findByPassword(String password);
+
 }

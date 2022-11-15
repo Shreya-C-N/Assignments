@@ -26,5 +26,18 @@ public class DoctorUserServiceImpl implements DoctorUserService{
 public void deleteDoctorUser(DoctorUser d1){
 	doctorUserRepository.delete(d1);
 }
+
+@Override
+public DoctorUser findByEmail(String email) {
+    return doctorUserRepository.findByEmail(email);
+}
+@Override
+public DoctorUser findByUsername(String username) {
+    return doctorUserRepository.findByUsername(username);
+}
+@Override
+public DoctorUser findByPassword(String password) {
+    return doctorUserRepository.findByPassword(password);
+}
 	
 }

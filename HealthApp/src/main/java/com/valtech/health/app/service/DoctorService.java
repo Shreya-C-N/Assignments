@@ -8,6 +8,12 @@ public interface DoctorService {
 
 	Doctor createDoctor(Doctor d);
 
-	List<Doctor> getAllComments();
+	List<Doctor> getAllDoctorComments();
+
+	Doctor getDoctorCommentById(int id);
+
+	Doctor updateDoctorComments(Doctor d);
+
+
 	
 }

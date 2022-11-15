@@ -6,13 +6,18 @@ public class DoctorUserModel {
 
 
 		private int id;
+		 //@NotEmpty
 		private String name;
 		private int number;
+		// @NotEmpty(message = "Email should not be empty")
+		 //   @Email
 		private String email;
 		
 		private String username;
+		//@NotEmpty(message = "Password should not be empty")
 		private String password;
 		private String confirmpassword;
+		
 		
 		
 		

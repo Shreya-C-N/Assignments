@@ -4,6 +4,7 @@ import javax.persistence.Column;
 
 public class DoctorModel {
 	private int id;
+	//@NotEmpty
 	private String name;
 	private String patients_name;
 	private String doctor_comments;

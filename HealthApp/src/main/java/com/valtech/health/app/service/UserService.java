@@ -9,7 +9,11 @@ public interface UserService {
 
 	void deleteUser(User user);
 
-	User findUserByEmail(String email);
+	User findByEmail(String email);
+	
+	User findByUsername(String username);
+
+	User findByPassword(String password);
 
 	
 

@@ -2,11 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+
 	
 <style>
   
@@ -27,12 +23,43 @@ h1{
 
 </style>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>ABOUT US</title>
+
 </head>
 
+
 <body>
-	
+	 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+            <a class="navbar-brand" href="#"> <img
+                th:src="@{/images/logo.png}" src="../static/images/logo.png"
+                width="auto" height="40" class="d-inline-block align-top" alt="" />
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+
+
+           <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto"></ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item active"><a class="nav-link"
+                        href="/index" >HOME PAGE</a></li>
+                          
+
+               </ul>
+
+           </div>
+        </div>
+    </nav><br>  
     <h1 style="font-size: 50px;">WELCOME TO HEALTH CARE EXPRESS </h1><p>The Best Medical Service of Bangalore
         City. Check Our All Feature Welcome to our new website. We encourage
         you to find out more about the values and vision that guides us, the

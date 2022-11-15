@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>LIST</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 <style>
@@ -36,8 +36,7 @@
 			<ul class="navbar-nav">
 				<li class="nav-item active"><a class="nav-link"
 					href="/index">HOME PAGE</a></li>
-					<li class="nav-item active"><a class="nav-link"
-					href="/new1">BACK</a></li>
+					
 				
 
 			</ul>
@@ -45,7 +44,8 @@
 		</div>
 	</div>
 	</nav>
-	<form>
+<!-- 	<form> -->
+
 <!-- <div class="w-75" align="center"> -->
 <h2>List Of Patients</h2>
 <table  class="table table-striped">
@@ -63,10 +63,10 @@
 </tr>
 </thead>
 <tbody>
-<c:forEach items="${a}" var="p">
+<c:forEach items="${p}" var="p">
 <tr>
-<%--  <td><a href="/index/${p.id }">${p.id}</a></td>  --%>
-<td>${p.id}</td>
+  <td><a href="/updatePatientDetails/${p.id}">${p.id}</a></td> 
+
 <td>${p.name}</td>
 <td>${p.age}</td>
 <td>${p.bloodgroup}</td>
@@ -79,7 +79,7 @@
 </c:forEach>
 </tbody>
 </table>
-</form>
+<!-- </form> -->
 <!-- </div> -->
 </body>
 </html>

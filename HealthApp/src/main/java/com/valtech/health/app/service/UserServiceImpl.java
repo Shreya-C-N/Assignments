@@ -6,6 +6,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.stereotype.Service;
 
+import com.valtech.health.app.entity.DoctorUser;
 import com.valtech.health.app.entity.PatientDetails;
 import com.valtech.health.app.entity.User;
 
@@ -27,8 +28,15 @@ public void deleteUser(User user) {
 }
 
 @Override
-public User findUserByEmail(String email) {
+public User findByEmail(String email) {
     return userRepository.findByEmail(email);
 }
-	
+@Override
+public User findByUsername(String username) {
+    return userRepository.findByUsername(username);
+}
+@Override
+public User findByPassword(String password) {
+    return userRepository.findByPassword(password);
+}
 }

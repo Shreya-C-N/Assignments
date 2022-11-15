@@ -17,7 +17,7 @@
     rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>DOCTOR'S LOGIN</title>
+    <title>DOCTOR LOGIN</title>
 
 </head>
 
@@ -39,7 +39,7 @@
 			<ul class="navbar-nav mr-auto"></ul>
 			<ul class="navbar-nav">
 				<li class="nav-item active"><a class="nav-link"
-					href="/index">Home Page</a></li>
+					href="/index">HOME PAGE</a></li>
 				
 
 			</ul>
@@ -57,8 +57,11 @@
         </div><br><br>
 
         <center><form action="/doctorlogin" method="post">
-Username:    <input name="username" type="text" /><br/><br/>
-Password:    <input name="password" type="text" /><br/><br/>
+         <c:if test="${not empty error }">
+        <div style="color:red;"><h3>${error}</h3></div><br/>
+        </c:if>
+<b>USERNAME: </b>   <input name="username" type="text" /><br/><br/>
+<b>PASSWORD: </b>   <input name="password" type="password" /><br/><br/>
 <input style="background-color: cornflowerblue" class="btn btn-secondary btn-lg" name="submit" value="LOGIN" type="submit"/>
 	&nbsp;
 

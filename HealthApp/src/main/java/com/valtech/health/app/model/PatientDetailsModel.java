@@ -4,6 +4,7 @@ import javax.persistence.Column;
 
 public class PatientDetailsModel {
 	private int id;
+	//@NotEmpty
 	private String name;
 	private int age;
 	private String bloodgroup;

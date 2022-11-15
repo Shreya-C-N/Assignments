@@ -11,10 +11,13 @@ public class Doctor {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id;
-	@Column(unique = true)
+	 @Column(nullable=false, unique=true)
 	private String name;
+	 @Column(nullable=false)
 	private String patients_name;
+	 @Column(nullable=false)
 	private String doctor_comments;
+	
 	
 	public Doctor() {
 		super();

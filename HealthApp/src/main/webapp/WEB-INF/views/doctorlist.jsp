@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>List</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -43,7 +43,6 @@
 			<ul class="navbar-nav">
 				<li class="nav-item active"><a class="nav-link" href="/index">HOME
 						PAGE</a></li>
-						<li class="nav-item active"><a class="nav-link" href="/new">BACK</a></li>
 				
 
 			</ul>
@@ -60,7 +59,8 @@
 			<thead>
 				<tr>
 					<td>Id</td>
-					<td>Name</td>
+					<td>Doctor's Name</td>
+					<td>Patient's Name</td>
 					<td>Doctor Comment</td>
 
 
@@ -68,18 +68,12 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${b}" var="d">
+				<c:forEach items="${d}" var="d">
 					<tr>
-						<%--  <td><a href="/index/${p.id }">${p.id}</a></td>  --%>
-						<td>${d.id}</td>
-
-
-
+					  <td><a href="/updateDoctorComments/${d.id }">${d.id}</a></td>  
 						<td>${d.name}</td>
+							<td>${d.patients_name}</td>
 						<td>${d.doctor_comments}</td>
-
-
-
 					</tr>
 				</c:forEach>
 			</tbody>

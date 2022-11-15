@@ -1,60 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container-fluid">
-            <a class="navbar-brand" href="#"> <img
-                th:src="@{/images/logo.png}" src="../static/images/logo.png"
-                width="auto" height="40" class="d-inline-block align-top" alt="" />
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse"
-                data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-
-
-           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto"></ul>
-                <ul class="navbar-nav">
-                    <li class="nav-item active"><a class="nav-link"
-                        href="/index" >HOME PAGE</a></li>
-                    <li class="nav-item active"><a class="nav-link"
-                        href="/doctorlogin" >LOGOUT</a></li>
-
-               </ul>
-
-           </div>
-        </div>
-    </nav><br> 
-<h1>Login Successful</h1>
-
- <form action="/list" method="get">
-<input name="submit" value="PATIENT'S DETAILS" type="submit"/> 
-</form>
-<br/><br/>
- <form action="/patientdetails" method="get">
-<input name="submit" value="PATIENT'S REGISTRATION" type="submit"/> 
-</form>
-<br/><br/>
- <form action="/doctorlist" method="get">
-<input name="submit" value="DOCTOR'S COMMENTS ON PATIENT" type="submit"/> 
-</form>
-<br/><br/>
-<form action="/logout" method="get">
-<input name="submit" value="LOGOUT" type="submit"/>
-</form>
-</body>
-</html> -->
-
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -76,7 +19,7 @@
 
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>NURSE DASHBOARD</title>
 </head>
 <body>
 
@@ -122,14 +65,12 @@
     <input name="submit" value="PATIENT REGISTRATION" type="submit" class="btn btn-secondary btn-lg" style="background-color: cornflowerblue;"/>
     </form>
     <br/><br/>
-<form action="/list" method="get">
-<input name="submit" value="PATIENT DETAILS" type="submit" class="btn btn-secondary btn-lg" style="background-color: cornflowerblue;"/>
+<form action="/doctorlist" method="get">
+<input name="submit" value="DOCTOR'S COMMENTS" type="submit" class="btn btn-secondary btn-lg" style="background-color: cornflowerblue;"/>
 </form>
 <br/><br/>
 
-    <form action="/doctorlist" method="get">
-        <input name="submit" value="DOCTOR'S COMMENTS ON PATIENT" class="btn btn-secondary btn-lg" type="submit" style="background-color: cornflowerblue;"/>
-        </form>
+  
         <br/><br/>
 
 <br/><br/>

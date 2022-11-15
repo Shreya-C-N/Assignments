@@ -11,7 +11,7 @@ public class PatientDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id;
-	@Column(unique = true)
+	 @Column(nullable=false, unique=true)
 	private String name;
 	private int age;
 	private String bloodgroup;

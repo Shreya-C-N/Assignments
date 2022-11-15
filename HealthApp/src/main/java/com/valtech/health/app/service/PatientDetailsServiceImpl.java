@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.valtech.health.app.entity.PatientDetails;
 import com.valtech.health.app.repostitory.PatientDetailsRepository;
 
+
 @Service
 public class PatientDetailsServiceImpl implements PatientDetailsService {
 	@Autowired
@@ -19,9 +20,26 @@ public class PatientDetailsServiceImpl implements PatientDetailsService {
 	public PatientDetails createPatientDetails(PatientDetails p){
 		return patientDetailsRepository.save(p);
 		}
-@Override
 
+@Override
 public List<PatientDetails>getAllPatientDetails(){
 	return patientDetailsRepository.findAll();
 }
+
+
+
+@Override
+@Transactional(propagation=Propagation.REQUIRED)
+public  PatientDetails getPatientById(int id){
+	return patientDetailsRepository.getReferenceById(id);
+}
+
+@Override
+@Transactional(propagation=Propagation.REQUIRED)
+public PatientDetails updatePatientsDetails(PatientDetails p) {
+	// TODO Auto-generated method stub
+	return patientDetailsRepository.save(p);
+	
+}
+
 }

@@ -57,25 +57,29 @@
 				
 				height="350" width="400">
         <form action="/patientdetails" method="post">
+       
+           <c:if test="${not empty success }">
+        <div style="color:green;"><h3>${success}</h3></div><br/>
+        </c:if>
 <table>
 
 
 <tr>Name:</tr><br/>
-<tr><input name="name" type="text" /></tr><br/>
+<tr><input name="name" type="text" /></tr><br/><br/>
 <tr>Age:</tr><br/>
-<tr><input name="age" type="text" /></tr><br/>
+<tr><input name="age" type="text" /></tr><br/><br/>
 <tr>Blood Group:</tr><br/>
-<tr><input name="bloodgroup" type="text" /></tr><br/>
+<tr><input name="bloodgroup" type="text" /></tr><br/><br/>
 <tr>Disease:</tr><br/>
-<tr><input name="disease" type="text" /></tr><br/>
+<tr><input name="disease" type="text" /></tr><br/><br/>
 <tr>Previous History:</tr><br/>
-<tr><input name="previous_history" type="text" /></tr><br/>
+<tr><input name="previous_history" type="text" /></tr><br/><br/>
 <tr>Temperature:</tr><br/>
-<tr><input name="temperature" type="text" /></tr><br/>
+<tr><input name="temperature" type="text" /></tr><br/><br/>
 <tr>Blood Pressure:</tr><br/>
-<tr><input name="blood_pressure" type="text" /></tr><br/>
+<tr><input name="blood_pressure" type="text" /></tr><br/><br/>
 <tr>Pulse Rate:</tr><br/>
-<tr><input name="pulse_rate" type="text" /></tr><br/>
+<tr><input name="pulse_rate" type="text" /></tr><br/><br/>
 </table><br/>
  
  <input style="background-color: cornflowerblue" name="submit" value="SUBMIT" type="submit" class="btn btn-secondary btn-lg"/>  

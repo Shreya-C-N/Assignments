@@ -9,4 +9,10 @@ import com.valtech.health.app.entity.User;
 public interface UserRepository extends JpaRepository<User, Integer>{
 	 User findByEmail(String email);
 
+	User findByUsername(String username);
+
+	User findByPassword(String password);
+
+	
+
 }

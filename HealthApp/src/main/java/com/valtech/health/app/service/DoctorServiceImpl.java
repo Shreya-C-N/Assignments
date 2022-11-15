@@ -22,7 +22,19 @@ public class DoctorServiceImpl implements DoctorService {
 		}
 @Override
 @Transactional(propagation=Propagation.REQUIRED)
-public List<Doctor>getAllComments(){
+public List<Doctor>getAllDoctorComments(){
 	return doctorRepository.findAll();
 }
+@Override
+public Doctor getDoctorCommentById(int id) {
+	// TODO Auto-generated method stub
+	return doctorRepository.getReferenceById(id);
+	
+}
+@Override
+public Doctor updateDoctorComments(Doctor d) {
+	// TODO Auto-generated method stub
+	return doctorRepository.save(d);
+}
+
 }
