@@ -8,12 +8,17 @@ public interface DoctorUserService {
 	DoctorUser createDoctorUser(DoctorUser d1);
 
 	void deleteDoctorUser(DoctorUser d1);
-	
+
 	DoctorUser findByEmail(String email);
 
 	DoctorUser findByUsername(String username);
 
 	DoctorUser findByPassword(String password);
+
+	DoctorUser getUsername(int id);
+
+	int getId(String username);
+
 
 
 }

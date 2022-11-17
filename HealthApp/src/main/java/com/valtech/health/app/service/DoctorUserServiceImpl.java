@@ -39,5 +39,21 @@ public DoctorUser findByUsername(String username) {
 public DoctorUser findByPassword(String password) {
     return doctorUserRepository.findByPassword(password);
 }
+//	  return  doctorUserRepository.findUsernameById(id);
+
+@Override
+public DoctorUser getUsername(int id) {
+	// TODO Auto-generated method stub
+	return  doctorUserRepository.findUsernameById(id);
+}
+
+@Override
+public int getId(String username) {
+	// TODO Auto-generated method stub
+	return doctorUserRepository.findIdByUsername(username);
+}
+
+
+
 	
 }

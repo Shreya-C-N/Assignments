@@ -46,9 +46,14 @@
                 <ul class="navbar-nav">
                     <li class="nav-item active"><a class="nav-link"
                         href="/index" >HOME PAGE</a></li>
-                    <li class="nav-item active"><a class="nav-link"
+                        <div class="position-absolute top-5 end-0">
+                         <form action="/doctorlogin" method="get">
+                       <input type="image" src="https://www.bing.com/th?id=OIP.qvYh3IDc63Pa8KFNB18YdAHaHa&w=166&h=166&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" width="50" height="50"alt="submit"/>
+                </form> 
+                </div>
+                   <!--  <li class="nav-item active"><a class="nav-link"
                         href="/doctorlogin" >LOGOUT</a></li>
-
+ -->
                </ul>
 
            </div>
@@ -60,7 +65,7 @@
 <!-- <center><h1 style="font-size:55px ;">Login Successful</h1></center>
 <br>
 <br> -->
-
+<%-- <h1 class="display-4" >Welcome ${add}</h1> --%>
 
 <form action="/list" method="get">
 <input name="submit" value="PATIENT'S DETAILS" class="btn btn-secondary btn-lg" type="submit" style="background-color: cornflowerblue;"/>
@@ -69,7 +74,10 @@
 <form action="/doctor" method="get">
 <input name="submit" value="DOCTOR'S COMMENT" class="btn btn-secondary btn-lg" type="submit" style="background-color: cornflowerblue;"/>
 </form>
-<br/><br/>
+<br/>
+<form action="/doctorlist" method="get">
+<input name="submit" value="UPDATE DOCTOR'S COMMENTS" type="submit" class="btn btn-secondary btn-lg" style="background-color: cornflowerblue;"/>
+</form><br/>
 
 <!-- </form> -->
 </body>

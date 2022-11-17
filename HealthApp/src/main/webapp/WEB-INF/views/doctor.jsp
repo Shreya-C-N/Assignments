@@ -12,6 +12,7 @@
          background-attachment: fixed;
          background-size: cover;
         }
+     }
  
   </style>
   <head>
@@ -40,13 +41,27 @@
  <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto"></ul>
                 <ul class="navbar-nav">
+               
+            
+                    <form action="/new" method="get">
+                       <input type="image" src="https://th.bing.com/th/id/OIP.8mRsjCy4bS8cl4z7hghIswHaDJ?w=339&h=148&c=7&r=0&o=5&pid=1.7" width="50" height="50" alt="submit"/>
+     
+     </form>
+          
                     <li class="nav-item active"><a class="nav-link"
                         href="/index" >HOME PAGE</a></li>
                  
-                       <li class="nav-item active"><a class="nav-link"
-                        href="/new" >BACK</a></li>
-                    <li class="nav-item active"><a class="nav-link"
-                        href="/doctorlogin" >LOGOUT</a></li>
+                    <!--    <li class="nav-item active"><a class="nav-link"
+                        href="/new" >BACK</a></li> -->
+                       
+                         <div class="position-absolute top-5 end-0">
+                         <form action="/doctorlogin" method="get">
+                       <input  type="image" src="https://www.bing.com/th?id=OIP.qvYh3IDc63Pa8KFNB18YdAHaHa&w=166&h=166&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" name="submit" width="50" height="50"alt="submit"/>
+                </form> 
+              
+                   </div>
+                </text-align> <!--   <li class="nav-item active"><a class="nav-link"
+                        href="/doctorlogin" >LOGOUT</a></li> -->
                  
     </ul>
 

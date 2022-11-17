@@ -110,14 +110,6 @@ public class User {
 		this.confirmpassword = confirmpassword;
 	}
 
-	public static Object withUsername(String username2) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	public static Object withPassword(String password) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 
 }
