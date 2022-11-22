@@ -117,7 +117,7 @@ public class HealthAppController {
 	@PostMapping("/doctorlogin") // doctor
 	public String doctorLoginUser(@ModelAttribute DoctorUserModel doctorUserModel,@RequestParam("username") String username, @RequestParam("password") String password,
 			Model model) {
-	//	String url;
+		//String url;
 		DoctorUser du = null;
 		DoctorUser du1 = null;
 		try {
@@ -129,7 +129,7 @@ public class HealthAppController {
 		}
 		if (du != null && du1 != null) {
 			model.addAttribute("username", username);
-		/*int id= dus.getId(doctorUserModel.getUsername());
+	/*	int id= dus.getId(doctorUserModel.getUsername());
              url="redirect:/doctorlogin/"+id;*/
           
             return "new";
@@ -304,15 +304,15 @@ public class HealthAppController {
 		model.addAttribute("d", ds.getDoctorCommentById(id));
 		return "updateDoctorComments";
 	}
-//
-//@GetMapping("/new/{id}")
-//    public String createnew(@PathVariable("id") int id,ModelMap model) {
-//	ModelAndView view = new ModelAndView("new"); 
-//	DoctorUser u=dus.getUsername(id);
-//model.addAttribute("add",u.getName());
-//	return "new";
-//    }
 
+/*@GetMapping("/new/{id}")
+    public String createnew(@PathVariable("id") int id,ModelMap model) {
+	ModelAndView view = new ModelAndView("new"); 
+	DoctorUser u=dus.getUsername(id);
+model.addAttribute("add",u.getName());
+	return "new";
+    }
+*/
 @GetMapping("/new")
 public String createnew() {
 	return "new";
