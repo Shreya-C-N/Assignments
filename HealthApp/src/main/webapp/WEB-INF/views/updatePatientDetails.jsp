@@ -108,8 +108,8 @@
 
 </form>
 &nbsp;
-<form action="/doctor" method="get">
-<input name="submit" class="btn btn-secondary btn-lg" value="DOCTOR'S COMMENT" style="background-color: cornflowerblue;"  type="submit" />
+<!-- <form action="/doctor" method="get">
+<input name="submit" class="btn btn-secondary btn-lg" value="DOCTOR'S COMMENT" style="background-color: cornflowerblue;"  type="submit" /> -->
 </table>
 </form>
 </body>

@@ -78,7 +78,7 @@ href="registerbutton.css"> -->
 				height="250" width="350">
 			<h2>Enter Your Details</h2>
 
-			<form action="/register" method="post">
+			<form action="/doctorregister" method="post">
 			<c:if test="${not empty error }">
         <div style="color:red;"><h3>${error}</h3></div><br/>
         </c:if>

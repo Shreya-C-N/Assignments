@@ -65,7 +65,7 @@
 <!-- <center><h1 style="font-size:55px ;">Login Successful</h1></center>
 <br>
 <br> -->
-<%-- <h1 class="display-4" >Welcome ${add}</h1> --%>
+ <h1 class="display-4" >Welcome ${add}</h1>
 
 <form action="/list" method="get">
 <input name="submit" value="PATIENT'S DETAILS" class="btn btn-secondary btn-lg" type="submit" style="background-color: cornflowerblue;"/>
@@ -82,55 +82,3 @@
 <!-- </form> -->
 </body>
 </html>
-<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container-fluid">
-            <a class="navbar-brand" href="#"> <img
-                th:src="@{/images/logo.png}" src="../static/images/logo.png"
-                width="auto" height="40" class="d-inline-block align-top" alt="" />
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse"
-                data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-
-
-           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto"></ul>
-                <ul class="navbar-nav">
-                    <li class="nav-item active"><a class="nav-link"
-                        href="/index" >HOME PAGE</a></li>
-                    <li class="nav-item active"><a class="nav-link"
-                        href="/doctorlogin" >LOGOUT</a></li>
-
-               </ul>
-
-           </div>
-        </div>
-    </nav><br>  
- <form action="/doctorlogin" method="post">
-<h1>Login Successful</h1>
-
- <form action="/list" method="get">
-<input name="submit" value="PATIENT'S DETAILS" type="submit"/> 
-</form>
-<br/><br/>
- <form action="/doctor" method="get">
-<input name="submit" value="DOCTOR'S COMMENT" type="submit"/> 
-</form>
-<br/><br/>
-<form action="/logout" method="get">
-<input name="submit" value="LOGOUT" type="submit"/>
-</form>
-</form>
-</body>
-</html> -->

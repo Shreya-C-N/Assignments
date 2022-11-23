@@ -82,15 +82,21 @@
 
 
    <form action="/updateDoctorComments/${d.id}" method="post">
+    <c:if test="${not empty error }">
+        <div style="color:red;"><h3>${error}</h3></div><br/>
+        </c:if>
+         <c:if test="${not empty success }">
+        <div style="color:green;"><h3>${success}</h3></div>
+        </c:if>
 <input type="hidden" name="id" value="${d.id}">
 <table>
-    <label>Doctor's Name: </label><input type="text" name="name" value="${d.name}"/>
+   <tr> <label>Doctor's Name: </label></tr><br/><tr><input type="text" name="doctorsname" value="${d.doctorsname}"/></tr>
 <br/><br/>
 
-<label>Patient's Name: </label><input type="text" name="patients_name" value="${d.patients_name}"/>
+<tr><label>Patient's Name: </label></tr><br/><tr><input type="text" name="patients_name" value="${d.patients_name}"/></tr>
 <br/><br/>
 
-<label>Doctor's Comments: </label><input type="text" name="doctor_comments" value="${d.doctor_comments}"/>
+<tr><label>Doctors Comment: </label></tr><br/><tr><textarea  name="doctor_comments" rows="4" cols="20" value="${d.doctor_comments}"></textarea></tr>
 <br/><br/>
 
 <input type="submit" name="submit"  class="btn btn-secondary btn-lg" style="background-color: cornflowerblue; "value="Save"/>

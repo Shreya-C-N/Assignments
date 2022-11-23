@@ -36,5 +36,10 @@ public Doctor updateDoctorComments(Doctor d) {
 	// TODO Auto-generated method stub
 	return doctorRepository.save(d);
 }
+/*@Override
+public Doctor findByDoctorsname(String doctorsname) {
+	// TODO Auto-generated method stub
+	return  doctorRepository.findByDoctorsname(doctorsname);
+}*/
 
 }

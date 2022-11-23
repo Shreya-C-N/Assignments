@@ -1,4 +1,3 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <style>
@@ -64,7 +63,7 @@
 <!-- <center><h1 style="font-size:55px ;">Login Successful</h1></center>
 <br> -->
 
-
+ <h1 class="display-4" >Welcome ${add}</h1>
 
 <form action="/patientdetails" method="get">
     <input name="submit" value="PATIENT REGISTRATION" type="submit" class="btn btn-secondary btn-lg" style="background-color: cornflowerblue;"/>

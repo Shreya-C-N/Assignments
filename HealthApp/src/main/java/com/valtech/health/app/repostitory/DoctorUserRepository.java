@@ -16,7 +16,11 @@ public interface DoctorUserRepository  extends JpaRepository<DoctorUser, Integer
 
 	DoctorUser findUsernameById(int id);
 
-	int findIdByUsername(String username);
+	DoctorUser findIdByUsername(String username);
+
+	DoctorUser findByName(String name);
+	
+	
 
 
 

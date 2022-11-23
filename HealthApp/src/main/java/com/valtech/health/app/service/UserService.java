@@ -15,6 +15,10 @@ public interface UserService {
 
 	User findByPassword(String password);
 
+	int getIdbyUsername(String string);
+
+	User getUsername(int id);
+
 	
 
 }

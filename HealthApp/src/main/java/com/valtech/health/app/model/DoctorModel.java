@@ -5,7 +5,7 @@ import javax.persistence.Column;
 public class DoctorModel {
 	private int id;
 	//@NotEmpty
-	private String name;
+	private String doctorsname;
 	private String patients_name;
 	private String doctor_comments;
 	
@@ -18,18 +18,18 @@ public class DoctorModel {
 	}
 
 
-	public DoctorModel(String name, String patients_name, String doctor_comments) {
+	public DoctorModel(String doctorsname, String patients_name, String doctor_comments) {
 		super();
-		this.name = name;
+		this.doctorsname = doctorsname;
 		this.patients_name = patients_name;
 		this.doctor_comments = doctor_comments;
 	}
 
 
-	public DoctorModel(int id, String name, String patients_name, String doctor_comments) {
+	public DoctorModel(int id, String doctorsname, String patients_name, String doctor_comments) {
 		super();
 		this.id = id;
-		this.name = name;
+		this.doctorsname = doctorsname;
 		this.patients_name = patients_name;
 		this.doctor_comments = doctor_comments;
 	}
@@ -37,8 +37,8 @@ public class DoctorModel {
 
 	@Override
 	public String toString() {
-		return "DoctorModel [id=" + id + ", name=" + name + ", patients_name=" + patients_name + ", doctor_comments="
-				+ doctor_comments + "]";
+		return "DoctorModel [id=" + id + ", doctorsname=" + doctorsname + ", patients_name=" + patients_name
+				+ ", doctor_comments=" + doctor_comments + "]";
 	}
 
 
@@ -52,13 +52,13 @@ public class DoctorModel {
 	}
 
 
-	public String getName() {
-		return name;
+	public String getDoctorsname() {
+		return doctorsname;
 	}
 
 
-	public void setName(String name) {
-		this.name = name;
+	public void setDoctorsname(String doctorsname) {
+		this.doctorsname = doctorsname;
 	}
 
 

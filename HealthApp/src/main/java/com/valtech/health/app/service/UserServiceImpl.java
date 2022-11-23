@@ -39,4 +39,18 @@ public User findByUsername(String username) {
 public User findByPassword(String password) {
     return userRepository.findByPassword(password);
 }
+
+@Override
+public User getUsername(int id) {
+	// TODO Auto-generated method stub
+	return  userRepository.findUsernameById(id);
+}
+
+@Override
+public int getIdbyUsername(String username) {
+	User du = userRepository.findByUsername(username);
+	return du.getId();
+}
+
+
 }

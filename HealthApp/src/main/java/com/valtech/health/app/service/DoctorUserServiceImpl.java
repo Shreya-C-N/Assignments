@@ -31,6 +31,12 @@ public void deleteDoctorUser(DoctorUser d1){
 public DoctorUser findByEmail(String email) {
     return doctorUserRepository.findByEmail(email);
 }
+
+@Override
+public DoctorUser findByName(String name) {
+    return doctorUserRepository.findByName(name);
+}
+
 @Override
 public DoctorUser findByUsername(String username) {
     return doctorUserRepository.findByUsername(username);
@@ -39,7 +45,7 @@ public DoctorUser findByUsername(String username) {
 public DoctorUser findByPassword(String password) {
     return doctorUserRepository.findByPassword(password);
 }
-//	  return  doctorUserRepository.findUsernameById(id);
+
 
 @Override
 public DoctorUser getUsername(int id) {
@@ -48,10 +54,11 @@ public DoctorUser getUsername(int id) {
 }
 
 @Override
-public int getId(String username) {
-	// TODO Auto-generated method stub
-	return doctorUserRepository.findIdByUsername(username);
+public int getIdbyUsername(String username) {
+	DoctorUser du = doctorUserRepository.findByUsername(username);
+	return du.getId();
 }
+
 
 
 

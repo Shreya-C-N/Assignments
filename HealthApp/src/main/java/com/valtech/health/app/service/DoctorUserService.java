@@ -17,7 +17,9 @@ public interface DoctorUserService {
 
 	DoctorUser getUsername(int id);
 
-	int getId(String username);
+	int getIdbyUsername(String username);
+
+	DoctorUser findByName(String name);
 
 
 

@@ -1,5 +1,8 @@
 package com.valtech.health.app.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.security.provisioning.UserDetailsManager;
@@ -26,6 +29,7 @@ import com.valtech.health.app.entity.User;
 import com.valtech.health.app.model.DoctorUserModel;
 import com.valtech.health.app.model.PatientDetailsModel;
 import com.valtech.health.app.model.UserModel;
+import com.valtech.health.app.repostitory.DoctorRepository;
 import com.valtech.health.app.repostitory.DoctorUserRepository;
 import com.valtech.health.app.repostitory.UserRepository;
 import com.valtech.health.app.service.DoctorService;
@@ -49,6 +53,8 @@ public class HealthAppController {
 	private UserRepository ur;
 	@Autowired
 	private DoctorUserRepository dur;
+	@Autowired
+	private DoctorRepository docr;
 	@Autowired
 	private DoctorUserService dus;
 
@@ -88,8 +94,9 @@ public class HealthAppController {
 
 	// @ResponseBody
 	@PostMapping("/login") // staff
-	public String loginUser(@RequestParam("username") String username, @RequestParam("password") String password,
+	public String loginUser(@ModelAttribute UserModel userModel,@RequestParam("username") String username, @RequestParam("password") String password,
 			Model model) {
+		String url;
 		User u = null;
 		User u1 = null;
 		try {
@@ -102,7 +109,10 @@ public class HealthAppController {
 		if (u != null && u1 != null) {
 			model.addAttribute("username", username);
 			// model.addAttribute("password", password);
-			return "new1";
+			int id= us.getIdbyUsername((userModel.getUsername()));
+	         url="redirect:/dashboard/"+id;
+	          
+	            return url;
 		}
 		model.addAttribute("error", "Entered username or password are not correct");
 		return "login";
@@ -113,11 +123,11 @@ public class HealthAppController {
 		return "login";
 	}
 
-	// @ResponseBody
+	//@ResponseBody
 	@PostMapping("/doctorlogin") // doctor
 	public String doctorLoginUser(@ModelAttribute DoctorUserModel doctorUserModel,@RequestParam("username") String username, @RequestParam("password") String password,
 			Model model) {
-		//String url;
+		String url;
 		DoctorUser du = null;
 		DoctorUser du1 = null;
 		try {
@@ -129,10 +139,10 @@ public class HealthAppController {
 		}
 		if (du != null && du1 != null) {
 			model.addAttribute("username", username);
-	/*	int id= dus.getId(doctorUserModel.getUsername());
-             url="redirect:/doctorlogin/"+id;*/
+	int id= dus.getIdbyUsername((doctorUserModel.getUsername()));
+         url="redirect:/doctordashboard/"+id;
           
-            return "new";
+            return url;
 		
 		}
 		model.addAttribute("error", "Entered username or password are not correct");
@@ -180,8 +190,7 @@ public class HealthAppController {
 
 	}
 
-	DoctorUser du = null;
-	DoctorUser du1 = null;
+	
 
 	@PostMapping("/doctorregister")
 	public String doctorRegisterUser(@RequestParam("email") String email, @ModelAttribute DoctorUser u,
@@ -196,7 +205,7 @@ public class HealthAppController {
 		}
 		if (d != null) {
 			model.addAttribute("error", "User Already Registered");
-			return "register";
+			return "doctorregister";
 		}
 		if (doctorUserModel.getPassword().equals(doctorUserModel.getConfirmpassword())) {
 			// ModelAndView mv=new ModelAndView("login");
@@ -236,6 +245,7 @@ public class HealthAppController {
 
 	@PostMapping("/doctor")
 	public void doctorPatientdetails(@ModelAttribute Doctor d, Model model) {
+		
 		dsi.createDoctor(d);
 		model.addAttribute("success", "Successfully Sent");
 		// return "demo";
@@ -258,14 +268,12 @@ public class HealthAppController {
 	public String doctorList(Model model) {
 
 		model.addAttribute("d", ds.getAllDoctorComments());
+		
 		return "doctorlist"; // prefix/cars/listsuffix
 								// /WEB-INF/views/Cars/list.jsp
 	}
 
-	@GetMapping("/demo")
-	public String index1() {
-		return "demo";
-	}
+	
 
 	@PostMapping("/updatePatientDetails/{id}")
 	public ModelAndView saveUpdatePatientDetails(@PathVariable("id") int id, @ModelAttribute PatientDetails p,
@@ -290,42 +298,73 @@ public class HealthAppController {
 	public ModelAndView saveUpdateDoctorComments(@PathVariable("id") int id, @ModelAttribute Doctor d,
 			@RequestParam("submit") String submit) {
 		ModelAndView view = new ModelAndView("/doctorlist");
-		if (submit.equals("Cancel")) {
+	if (submit.equals("Cancel")) {
 			view.addObject("d", ds.getAllDoctorComments());
 			return view;
 		}
+		/*DoctorUser du = null;
+		Doctor doc = null;
+		try {
+			du = dur.findByName(name);
+			doc=docr.findByDoctorsname(doctorsname);
+		}
+		catch(Exception e){
+			System.out.println("Doctor not available !!!");
+		}
+		if(!du.equals(doc)){
+			model.addAttribute("error", "Doctor is not available");
+		
+		}*/
+		
 		ds.updateDoctorComments(d);
 		view.addObject("d", ds.getAllDoctorComments());
 		return view;
+		
 	}
 
 	@GetMapping("/updateDoctorComments/{id}")
 	public String updateDoctorComments(@PathVariable("id") int id, Model model) {
 		model.addAttribute("d", ds.getDoctorCommentById(id));
+		
 		return "updateDoctorComments";
 	}
 
-/*@GetMapping("/new/{id}")
+@GetMapping("/doctordashboard/{id}")
     public String createnew(@PathVariable("id") int id,ModelMap model) {
-	ModelAndView view = new ModelAndView("new"); 
+	ModelAndView view = new ModelAndView("doctordashboard"); 
 	DoctorUser u=dus.getUsername(id);
+	//System.out.println(u);
 model.addAttribute("add",u.getName());
-	return "new";
+
+
+	return "doctordashboard";
     }
-*/
-@GetMapping("/new")
+
+/*@GetMapping("/new")
 public String createnew() {
 	return "new";
-}
+}*/
 
+/*	@GetMapping("/new1")
+	public String createnew1() {
+		return "new1";
+	}
+*/
+	
+	@GetMapping("/dashboard/{id}")
+    public String createnew1(@PathVariable("id") int id,ModelMap model) {
+	ModelAndView view = new ModelAndView("dashboard"); 
+	User u=us.getUsername(id);
+//	System.out.println(u);
+model.addAttribute("add",u.getName());
+//System.out.println(model.addAttribute("ad",u.getId()));
+
+	return "dashboard";
+    }
+	
 	@GetMapping("/logout")
 	public String logout() {
 		return "index";
 	}
-
-	@GetMapping("/new1")
-	public String createnew1() {
-		return "new1";
-	}
-
+	
 }
