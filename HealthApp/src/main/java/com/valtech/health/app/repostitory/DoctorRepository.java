@@ -9,6 +9,5 @@ import com.valtech.health.app.entity.User;
 
 @Repository
 public interface DoctorRepository  extends JpaRepository<Doctor, Integer> {
-	/*Doctor findByDoctorsname(String doctorsname);*/
-
+	Doctor findByDoctorsname(String doctorsname);
 }

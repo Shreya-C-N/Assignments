@@ -96,7 +96,7 @@
 <tr><label>Patient's Name: </label></tr><br/><tr><input type="text" name="patients_name" value="${d.patients_name}"/></tr>
 <br/><br/>
 
-<tr><label>Doctors Comment: </label></tr><br/><tr><textarea  name="doctor_comments" rows="4" cols="20" value="${d.doctor_comments}"></textarea></tr>
+<tr><label>Doctors Comment: </label></tr><br/><tr><input type="text" name="doctor_comments" value="${d.doctor_comments}"/></tr>
 <br/><br/>
 
 <input type="submit" name="submit"  class="btn btn-secondary btn-lg" style="background-color: cornflowerblue; "value="Save"/>

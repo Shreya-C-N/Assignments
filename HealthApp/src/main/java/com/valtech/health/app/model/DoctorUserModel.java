@@ -6,15 +6,14 @@ public class DoctorUserModel {
 
 
 		private int id;
-		 //@NotEmpty
+		 
 		private String name;
-		private int number;
-		// @NotEmpty(message = "Email should not be empty")
-		 //   @Email
+		private String number;
+		
 		private String email;
 		
 		private String username;
-		//@NotEmpty(message = "Password should not be empty")
+		
 		private String password;
 		private String confirmpassword;
 		
@@ -27,7 +26,7 @@ public class DoctorUserModel {
 		}
 		
 		
-		public DoctorUserModel(String name, int number, String email, String username, String password, String confirmpassword) {
+		public DoctorUserModel(String name, String number, String email, String username, String password, String confirmpassword) {
 			super();
 			this.name = name;
 			this.number = number;
@@ -38,7 +37,7 @@ public class DoctorUserModel {
 		}
 
 
-		public DoctorUserModel(int id, String name, int number, String email, String username, String password,
+		public DoctorUserModel(int id, String name, String number, String email, String username, String password,
 				String confirmpassword) {
 			super();
 			this.id = id;
@@ -63,10 +62,10 @@ public class DoctorUserModel {
 		public void setName(String name) {
 			this.name = name;
 		}
-		public int getNumber() {
+		public String getNumber() {
 			return number;
 		}
-		public void setNumber(int number) {
+		public void setNumber(String number) {
 			this.number = number;
 		}
 		public String getEmail() {

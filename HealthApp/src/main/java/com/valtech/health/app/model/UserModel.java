@@ -2,20 +2,18 @@ package com.valtech.health.app.model;
 
 import javax.persistence.Column;
 
-//import jakarta.validation.constraints.Email;
-//import jakarta.validation.constraints.NotEmpty;
+
 
 public class UserModel {
 	private int id;
-	// @NotEmpty
+	
 	private String name;
-	private int number;
-	//  @NotEmpty(message = "Email should not be empty")
-	  //  @Email
+	private String number;
+	
 	private String email;
-	// @NotEmpty
+	
 	private String username;
-	// @NotEmpty(message = "Password should not be empty")
+	
 	private String password;
 	private String confirmpassword;
 	
@@ -27,7 +25,7 @@ public class UserModel {
 	}
 	
 	
-	public UserModel(String name, int number, String email, String username, String password, String confirmpassword) {
+	public UserModel(String name, String number, String email, String username, String password, String confirmpassword) {
 		super();
 		this.name = name;
 		this.number = number;
@@ -38,7 +36,7 @@ public class UserModel {
 	}
 
 
-	public UserModel(int id, String name, int number, String email, String username, String password,
+	public UserModel(int id, String name, String number, String email, String username, String password,
 			String confirmpassword) {
 		super();
 		this.id = id;
@@ -63,10 +61,10 @@ public class UserModel {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getNumber() {
+	public String getNumber() {
 		return number;
 	}
-	public void setNumber(int number) {
+	public void setNumber(String number) {
 		this.number = number;
 	}
 	public String getEmail() {

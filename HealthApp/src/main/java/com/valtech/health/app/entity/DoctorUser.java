@@ -5,8 +5,15 @@ package com.valtech.health.app.entity;
 	import javax.persistence.GeneratedValue;
 	import javax.persistence.GenerationType;
 	import javax.persistence.Id;
+	//import javax.validation.constraints;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 
 	@Entity
 	@Table(name="DoctorUser",uniqueConstraints=@UniqueConstraint(columnNames="email"))
@@ -14,13 +21,18 @@ import javax.persistence.UniqueConstraint;
 		@Id
 		@GeneratedValue(strategy = GenerationType.SEQUENCE)
 		private int id;
-		 @Column(nullable=false, unique=true)
+		 @NotBlank(message="Name cannot be empty!!")
+		 @Size(min = 3, max=10,message="User name must be between 3-10 characters!!")
 		private String name;
-		private int number;
+		 @Pattern(regexp="(0/91)?[7-9][0-9]{9}")
+		private String number;
 		 @Column(nullable=false, unique=true)
-		private String email;
+	//	@Pattern(regexp="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$",message="Invalid Email!!")
+		 private String email;
 		 @Column(nullable=false, unique=true)
+		 @Size(min = 3, max=10,message="username must be between 3-10 characters!!")
 		private String username;
+		 @Size(min = 3, max=10,message="password must be between 3-10 characters!!")
 		private String password;
 		private String confirmpassword;
 
@@ -29,7 +41,7 @@ import javax.persistence.UniqueConstraint;
 			// TODO Auto-generated constructor stub
 		}
 
-		public DoctorUser(String name, int number, String email, String username, String password, String confirmpassword) {
+		public DoctorUser(String name, String number, String email, String username, String password, String confirmpassword) {
 			super();
 
 			this.name = name;
@@ -40,7 +52,7 @@ import javax.persistence.UniqueConstraint;
 			this.confirmpassword = confirmpassword;
 		}
 
-		public DoctorUser(int id, String name, int number, String email, String username, String password,
+		public DoctorUser(int id, String name, String number, String email, String username, String password,
 				String confirmpassword) {
 			super();
 			this.id = id;
@@ -68,11 +80,11 @@ import javax.persistence.UniqueConstraint;
 			this.name = name;
 		}
 
-		public int getNumber() {
+		public String getNumber() {
 			return number;
 		}
 
-		public void setNumber(int number) {
+		public void setNumber(String number) {
 			this.number = number;
 		}
 

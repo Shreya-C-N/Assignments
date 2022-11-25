@@ -2,6 +2,7 @@ package com.valtech.health.app.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -20,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+//import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.valtech.health.app.entity.Doctor;
 import com.valtech.health.app.entity.DoctorUser;
@@ -156,9 +157,10 @@ public class HealthAppController {
 	}
 
 	@PostMapping("/register")
-	public String registerUser(@RequestParam("email") String email, @ModelAttribute User u,
-			@ModelAttribute UserModel userModel, Model model) {
+	public String registerUser(@RequestParam("email") String email,@Valid @ModelAttribute User u,
+			@ModelAttribute UserModel userModel, Model model,BindingResult result) {
 		User u1 = null;
+		
 		try {
 
 			u1 = ur.findByEmail(email);
@@ -169,15 +171,18 @@ public class HealthAppController {
 			model.addAttribute("error", "User Already Registered");
 			return "register";
 		}
-
+		
+	
 		if (userModel.getPassword().equals(userModel.getConfirmpassword())) {
-			// ModelAndView mv=new ModelAndView("login");
-
+		
+				
 			usi.createUser(u);
 			model.addAttribute("success", "Successfully Registered");
 
 			return "login";
-		} else {
+
+		}
+			else {
 			model.addAttribute("error", "Password and Confirm Password doesnot match");
 			return "register";
 		}
@@ -190,33 +195,40 @@ public class HealthAppController {
 
 	}
 
-	
 
 	@PostMapping("/doctorregister")
-	public String doctorRegisterUser(@RequestParam("email") String email, @ModelAttribute DoctorUser u,
-			@ModelAttribute DoctorUserModel doctorUserModel, Model model) {
-
+	public String doctorRegisterUser(@RequestParam("email") String email, @Valid @ModelAttribute DoctorUser u,
+			@ModelAttribute DoctorUserModel doctorUserModel, Model model,BindingResult result ) {
+		
 		DoctorUser d = null;
+		
 		try {
 
 			d = dur.findByEmail(email);
 		} catch (Exception e) {
 			System.out.println("User already registered !!!");
 		}
+		
+		
 		if (d != null) {
 			model.addAttribute("error", "User Already Registered");
 			return "doctorregister";
 		}
+		
+		
 		if (doctorUserModel.getPassword().equals(doctorUserModel.getConfirmpassword())) {
 			// ModelAndView mv=new ModelAndView("login");
+			
+		
 			dusi.createDoctorUser(u);
 			model.addAttribute("success", "Successfully Registered");
 			return "doctorlogin";
+		
 		} else {
 			model.addAttribute("error", "Password and Confirm Password doesnot match");
 			return "doctorregister";
 		}
-
+	
 	}
 
 	@GetMapping("/doctorregister")
@@ -232,7 +244,20 @@ public class HealthAppController {
 	}
 
 	@PostMapping("/patientdetails")
-	public void patientdetails(@ModelAttribute PatientDetails p, Model model) {
+	public void patientdetails(@ModelAttribute PatientDetails p,@RequestParam("doctorsname") String doctorsname, Model model) {
+
+	/*	Doctor doc = null;
+try {
+			doc = docr.find
+			doc=docr.findByDoctorsname(doctorsname);
+		}
+		catch(Exception e){
+			System.out.println("Doctor not available !!!");
+		}
+		if(!du.equals(doc)){
+			model.addAttribute("error", "Doctor is not available");
+		
+		}*/
 		pdsi.createPatientDetails(p);
 		model.addAttribute("success", "Successfully Sent");
 		// return "demo";
@@ -245,8 +270,9 @@ public class HealthAppController {
 
 	@PostMapping("/doctor")
 	public void doctorPatientdetails(@ModelAttribute Doctor d, Model model) {
-		
+	
 		dsi.createDoctor(d);
+		
 		model.addAttribute("success", "Successfully Sent");
 		// return "demo";
 	}
@@ -302,19 +328,7 @@ public class HealthAppController {
 			view.addObject("d", ds.getAllDoctorComments());
 			return view;
 		}
-		/*DoctorUser du = null;
-		Doctor doc = null;
-		try {
-			du = dur.findByName(name);
-			doc=docr.findByDoctorsname(doctorsname);
-		}
-		catch(Exception e){
-			System.out.println("Doctor not available !!!");
-		}
-		if(!du.equals(doc)){
-			model.addAttribute("error", "Doctor is not available");
 		
-		}*/
 		
 		ds.updateDoctorComments(d);
 		view.addObject("d", ds.getAllDoctorComments());

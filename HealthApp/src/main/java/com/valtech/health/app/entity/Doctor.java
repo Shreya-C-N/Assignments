@@ -13,7 +13,7 @@ public class Doctor {
 	private int id;
 	@Column(nullable=false, unique=true)
 	private String doctorsname;
-	// @Column(nullable=false)
+	@Column(nullable=false)
 	private String patients_name;
 	 @Column(nullable=false)
 	private String doctor_comments;

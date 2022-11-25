@@ -87,23 +87,33 @@ href="registerbutton.css"> -->
         </c:if>
 				<table>
 					<label>Name: </label>
-					<input name="name" type="text" />
+					<input name="name" type="text"  
+					pattern="[A-Za-z]{3,10}" required
+					title="Name must be between 3-10 characters!!"  />
 					<br />
 					<br />
 					<label>Phone Number:</label>
-					<input name="number" type="text" />
+					<input name="number" type="text" 
+					pattern="(0/91)?[7-9][0-9]{9}"required
+					title="Invalid Phone number!!"/>
 					<br />
 					<br />
 					<label>Email: </label>
-					<input name="email" type="text" />
+					<input name="email" type="text" 
+					pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$" required
+					title="Invalid Email!!"/>
 					<br />
 					<br />
 					<label>Username: </label>
-					<input name="username" type="text" />
+					<input name="username" type="text" 
+					pattern="[A-Za-z]{3,10}" required
+					title="User name must be between 3-10 characters!!" />
 					<br />
 					<br />
 					<label>Password: </label>
-					<input name="password" type="password" />
+					<input name="password" type="password"
+					pattern="[A-Za-z0-9#@$&]{3,10}" required
+					title="Password must be between 3-10 characters and type only valid characters!!" />
 					<br />
 					<br />
 					<label>Confirm Password: </label>

@@ -9,8 +9,8 @@ public interface DoctorService {
 
 	Doctor createDoctor(Doctor d);
 
-	/*Doctor findByDoctorsname(String doctorsname);
-	*/
+	Doctor findByDoctorsname(String doctorsname);
+	
 	List<Doctor> getAllDoctorComments();
 
 	Doctor getDoctorCommentById(int id);
