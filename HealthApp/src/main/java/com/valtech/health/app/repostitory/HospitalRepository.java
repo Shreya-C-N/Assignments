@@ -1,0 +1,11 @@
+package com.valtech.health.app.repostitory;
+
+import org.springframework.stereotype.Repository;
+
+import com.valtech.health.app.entity.Hospital;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface HospitalRepository extends JpaRepository<Hospital, Integer> {
+
+}

@@ -15,6 +15,8 @@ public interface PatientDetailsService {
 	PatientDetails updatePatientsDetails(PatientDetails p);
 
 	PatientDetails getPatientById(int id);
+	
+	
 
 }
 

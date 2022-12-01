@@ -14,6 +14,7 @@ public class PatientDetails {
 	 @Column(nullable=false, unique=true)
 	private String name;
 	private int age;
+	private String doctorsname;
 	private String bloodgroup;
 	private String disease;
 	private String previous_history;
@@ -23,16 +24,20 @@ public class PatientDetails {
 	
 	
 	
+	
 	public PatientDetails() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public PatientDetails(String name, int age, String bloodgroup, String disease, String previous_history,
-			int temperature, int blood_pressure, int pulse_rate) {
+	
+	public PatientDetails(int id, String name, int age, String doctorsname, String bloodgroup, String disease,
+			String previous_history, int temperature, int blood_pressure, int pulse_rate) {
 		super();
+		this.id = id;
 		this.name = name;
 		this.age = age;
+		this.doctorsname = doctorsname;
 		this.bloodgroup = bloodgroup;
 		this.disease = disease;
 		this.previous_history = previous_history;
@@ -41,12 +46,13 @@ public class PatientDetails {
 		this.pulse_rate = pulse_rate;
 	}
 
-	public PatientDetails(int id, String name, int age, String bloodgroup, String disease, String previous_history,
-			int temperature, int blood_pressure, int pulse_rate) {
+
+	public PatientDetails(String name, int age, String doctorsname, String bloodgroup, String disease,
+			String previous_history, int temperature, int blood_pressure, int pulse_rate) {
 		super();
-		this.id = id;
 		this.name = name;
 		this.age = age;
+		this.doctorsname = doctorsname;
 		this.bloodgroup = bloodgroup;
 		this.disease = disease;
 		this.previous_history = previous_history;
@@ -54,6 +60,7 @@ public class PatientDetails {
 		this.blood_pressure = blood_pressure;
 		this.pulse_rate = pulse_rate;
 	}
+
 
 	public int getId() {
 		return id;
@@ -73,6 +80,16 @@ public class PatientDetails {
 	public void setAge(int age) {
 		this.age = age;
 	}
+	
+	public String getDoctorsname() {
+		return doctorsname;
+	}
+
+	public void setDoctorsname(String doctorsname) {
+		this.doctorsname = doctorsname;
+	}
+
+
 	public String getBloodgroup() {
 		return bloodgroup;
 	}

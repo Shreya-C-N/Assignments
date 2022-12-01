@@ -19,7 +19,7 @@ public interface DoctorUserService {
 
 	int getIdbyUsername(String username);
 
-	DoctorUser findByName(String name);
+	Boolean findByName(String name);
 
 
 

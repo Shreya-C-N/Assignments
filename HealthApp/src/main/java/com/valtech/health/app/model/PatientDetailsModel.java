@@ -7,6 +7,7 @@ public class PatientDetailsModel {
 	//@NotEmpty
 	private String name;
 	private int age;
+	private String doctorsname;
 	private String bloodgroup;
 	private String disease;
 	private String previous_history;
@@ -20,13 +21,12 @@ public class PatientDetailsModel {
 		// TODO Auto-generated constructor stub
 	}
 	
-
-	public PatientDetailsModel(int id, String name, int age, String bloodgroup, String disease, String previous_history,
-			int temperature, int blood_pressure, int pulse_rate) {
+	public PatientDetailsModel(String name, int age, String doctorsname, String bloodgroup, String disease,
+			String previous_history, int temperature, int blood_pressure, int pulse_rate) {
 		super();
-		this.id = id;
 		this.name = name;
 		this.age = age;
+		this.doctorsname = doctorsname;
 		this.bloodgroup = bloodgroup;
 		this.disease = disease;
 		this.previous_history = previous_history;
@@ -35,12 +35,13 @@ public class PatientDetailsModel {
 		this.pulse_rate = pulse_rate;
 	}
 
-
-	public PatientDetailsModel(String name, int age, String bloodgroup, String disease, String previous_history,
-			int temperature, int blood_pressure, int pulse_rate) {
+	public PatientDetailsModel(int id, String name, int age, String doctorsname, String bloodgroup, String disease,
+			String previous_history, int temperature, int blood_pressure, int pulse_rate) {
 		super();
+		this.id = id;
 		this.name = name;
 		this.age = age;
+		this.doctorsname = doctorsname;
 		this.bloodgroup = bloodgroup;
 		this.disease = disease;
 		this.previous_history = previous_history;
@@ -68,6 +69,15 @@ public class PatientDetailsModel {
 	public void setAge(int age) {
 		this.age = age;
 	}
+	
+	public String getDoctorsname() {
+		return doctorsname;
+	}
+
+	public void setDoctorsname(String doctorsname) {
+		this.doctorsname = doctorsname;
+	}
+
 	public String getBloodgroup() {
 		return bloodgroup;
 	}

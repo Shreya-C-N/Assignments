@@ -14,9 +14,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.test.context.support.WithAnonymousUser;
 import org.springframework.test.web.servlet.MockMvc;
-
-
-
+import org.springframework.test.web.servlet.ResultHandler;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
@@ -151,9 +149,12 @@ class HealthAppApplicationTests {
 //	@Test
 //	@WithAnonymousUser
 //	void testNewWithAnonymous() throws Exception {
-//		mvc.perform(get("/dashboard")).andExpect(status().isOk());
+//		String id="5";
+//		mvc.perform(get("/dashboard/{id}",id)).andDo(print()).andExpect(content().string("")).andExpect(status().isOk());
 //	}
 //
+
+
 	@Test
 	@WithAnonymousUser
 	void testCommentList() throws Exception {
@@ -224,7 +225,7 @@ class HealthAppApplicationTests {
        @Test
        public void createPatient(){
            
-           PatientDetails p1= new PatientDetails("priya",23,"o positive","fever","null",95,89,88);
+           PatientDetails p1= new PatientDetails("priya",23,"aaa","o positive","fever","null",95,89,88);
            when(patientDetailsRepository.save(p1)).thenReturn(p1);
            assertEquals(p1, patientDetailsServiceImpl.createPatientDetails(p1));
          
@@ -232,7 +233,7 @@ class HealthAppApplicationTests {
        
        @Test
        public void AllPatientDeatils(){
-           when(patientDetailsRepository.findAll()).thenReturn(Stream.of(new PatientDetails("priya",23,"o positive","fever","null",95,89,88))
+           when(patientDetailsRepository.findAll()).thenReturn(Stream.of(new PatientDetails("priya",23,"aaa","o positive","fever","null",95,89,88))
                    .collect(Collectors.toList()));
        
        }
@@ -259,10 +260,20 @@ class HealthAppApplicationTests {
            
        }
        
+   /*    @Test
+       public void findByEmailDoctor() {
+       DoctorUser d1 = new DoctorUser("heena", "123", "heena@gmail.com", "hina", "abc", "abc");
+       when(doctorUserRepository.save(d1)).thenReturn(d1);    
+       
+       assertEquals(d1, doctorUserRepository.findByEmail("heena@gmail.com"));
+       }*/
 //       @Test
 //       public void findByEmail(){
 //           when(userRepository.findByEmail()).thenReturn(Stream.of(new User("heena","123","heena@gmail.com","hina","abc","abc"))
 //                   .collect(Collectors.toList()));    
-//       }             
+//       }    
+       
+       
+      
 	
 }

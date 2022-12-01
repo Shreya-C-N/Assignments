@@ -33,9 +33,15 @@ public DoctorUser findByEmail(String email) {
 }
 
 @Override
+public Boolean findByName(String name) {
+    if(doctorUserRepository.findByName(name)!=null)
+        return true;
+    return false;
+}
+/*@Override
 public DoctorUser findByName(String name) {
     return doctorUserRepository.findByName(name);
-}
+}*/
 
 @Override
 public DoctorUser findByUsername(String username) {
