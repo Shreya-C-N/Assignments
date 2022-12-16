@@ -44,7 +44,7 @@
 
 .navbar ul li a {
 	text-decoration: none;
-	color: #0b0a0b;
+	color: #3a51b6;
 	text-transform: uppercase;
 }
 
@@ -52,7 +52,7 @@
 	content: '';
 	height: 3px;
 	width: 0;
-	background: #009688;
+	background: #3a51b6;
 	position: absolute;
 	left: 0;
 	bottom: -10px;
@@ -61,6 +61,7 @@
 
 .navbar ul li:hover::after {
 	width: 100%;
+	color: #0a3bec;
 }
 
 html, body {
@@ -69,11 +70,27 @@ html, body {
 	width: 100%;
 	place-items: center;
 	background: #f2f2f2;
-	background-image:
-		url("https://www.bovary.gr/sites/default/files/styles/thumbnail/public/2020-03/diadromos-nosokomeiou_2.jpg?itok=M50JLvoZ");
+	background-image: url(Back.jpg);
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: cover;
+	background-image:
+		url("https://png.pngtree.com/background/20210709/original/pngtree-stethoscope-medical-instrument-instrument-doctor-background-picture-image_555640.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+form .field input[type="reset"] {
+	color: #fff;
+	border: none;
+	padding-left: 0;
+	margin-top: -10px;
+	font-size: 20px;
+	font-weight: 500;
+	cursor: pointer;
+	background: linear-gradient(-135deg, #0a3bec, #009688);
+	transition: all 0.3s ease;
 }
 
 ::selection {
@@ -82,6 +99,7 @@ html, body {
 }
 
 .wrapper {
+	/* position: center; */
 	width: 380px;
 	background: #fff;
 	border-radius: 15px;
@@ -106,7 +124,7 @@ html, body {
 }
 
 .wrapper form .field {
-	height: 40px;
+	height: 50px;
 	width: 100%;
 	margin-top: 20px;
 	position: relative;
@@ -193,7 +211,9 @@ form .field input[type="submit"] {
 form .field input[type="submit"]:active {
 	transform: scale(0.95);
 }
-
+/*  form .field input[type="reset"]:active{
+      transform: scale(0.95);
+    } */
 form .signup-link {
 	color: #262626;
 	margin-top: 20px;
@@ -209,9 +229,10 @@ form .pass-link a:hover, form .signup-link a:hover {
 	text-decoration: underline;
 }
 </style>
-</head>
 
+</head>
 <body>
+
 	<div class="banner">
 		<div class="navbar">
 			<img
@@ -220,36 +241,52 @@ form .pass-link a:hover, form .signup-link a:hover {
 			<ul>
 				<li><a href="/home">HOME</a></li>&nbsp;&nbsp;&nbsp;
 				<li><a href="/aboutus">ABOUT US</a></li>&nbsp;&nbsp;&nbsp;
-				<li><a href="/admindashboard">ADMIN</a></li>&nbsp;&nbsp;&nbsp;
-				<li><a href="/login">LOGOUT</a></li>&nbsp;&nbsp;&nbsp;
 			</ul>
 		</div>
 		<CENTER>
 			<div class="wrapper">
+				<div class="title">PASSWORD RESET FORM</div>
+				<form action="/forgotpassword" method="post">
+					<c:if test="${not empty error}">
+						<div style="color: red;">
+							<h3>${error}</h3>
+						</div>
+						<br />
+					</c:if>
+					<c:if test="${not empty success}">
+						<div style="color: green;">
+							<h3>${success}</h3>
+						</div>
+						<br />
+					</c:if>
+					
+					<div class="field">
+						<input name="otp" type="text" pattern="[0-9]{3,10}" required
+							title="Invalid Email !!" /> <label>OTP</label>
+					</div>
 
-				<div class="title">Hospital List</div>
-				<form action="/updatehospitals/${h.id}" method="post">
-					<input type="hidden" name="id" value="${h.id}">
 					<div class="field">
-						<input type="text" name="hospitalname" value="${h.hospitalname}" />
-						<label>Hospital Name</label>
+						<input name="password" type="password" pattern="[A-Za-z]{3,10}"
+							required id="password" name="pass"  title="Password must be between 3-10 characters !!" />
+						<label>New Password</label>
 					</div>
 					<div class="field">
-						<input type="text" name="location" value="${h.location}" /> <label>Location</label>
-					</div>
-					<div class="field">
-						<input type="text" name="contactnumber" value="${h.contactnumber}" />
-						<label>Contact Number</label>
-					</div>
+						<input name="confirmpassword" type="password"
+							pattern="[A-Za-z]{3,10}" required 
+							title="Password must be between 3-10 characters !!" /> <label>Confirm New 
+							Password </label>
+							</div>
+						<div class="field">
+							<input type="submit" value="RESET PASSWORD" name="submit" />
+						</div>
+						
 
-					<div class="field">
-						<input type="submit" name="submit" value="Save" />
+
+						</li>
 					</div>
-					<div class="field">
-						<input type="submit" name="submit" value="Cancel" />
-					</div>
-				</form>
-				</form>
+		</CENTER>
+		</form>
+	</div>
 </body>
-</div>
 </html>
+

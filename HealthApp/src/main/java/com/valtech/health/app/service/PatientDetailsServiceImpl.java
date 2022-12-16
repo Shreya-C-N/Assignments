@@ -10,36 +10,35 @@ import org.springframework.transaction.annotation.Transactional;
 import com.valtech.health.app.entity.PatientDetails;
 import com.valtech.health.app.repostitory.PatientDetailsRepository;
 
-
 @Service
 public class PatientDetailsServiceImpl implements PatientDetailsService {
 	@Autowired
 	private PatientDetailsRepository patientDetailsRepository;
-	
-@Override
-	public PatientDetails createPatientDetails(PatientDetails p){
+
+	/* This method creates Patient Details */
+	@Override
+	public PatientDetails createPatientDetails(PatientDetails p) {
 		return patientDetailsRepository.save(p);
-		}
+	}
 
-@Override
-public List<PatientDetails>getAllPatientDetails(){
-	return patientDetailsRepository.findAll();
-}
+	/* This method lists all Patient Details */
+	@Override
+	public List<PatientDetails> getAllPatientDetails() {
+		return patientDetailsRepository.findAll();
+	}
 
+	/* This method retrieves Patient by ID */
+	@Override
+	@Transactional(propagation = Propagation.REQUIRED)
+	public PatientDetails getPatientById(int id) {
+		return patientDetailsRepository.getReferenceById(id);
+	}
 
-
-@Override
-@Transactional(propagation=Propagation.REQUIRED)
-public  PatientDetails getPatientById(int id){
-	return patientDetailsRepository.getReferenceById(id);
-}
-
-@Override
-@Transactional(propagation=Propagation.REQUIRED)
-public PatientDetails updatePatientsDetails(PatientDetails p) {
-	// TODO Auto-generated method stub
-	return patientDetailsRepository.save(p);
-	
-}
-
+	/* This method updates Patient Details */
+	@Override
+	@Transactional(propagation = Propagation.REQUIRED)
+	public PatientDetails updatePatientsDetails(PatientDetails p) {
+		// TODO Auto-generated method stub
+		return patientDetailsRepository.save(p);
+	}
 }

@@ -44,7 +44,7 @@
 
 .navbar ul li a {
 	text-decoration: none;
-	color: #0b0a0b;
+	color: #0a0a0a;
 	text-transform: uppercase;
 }
 
@@ -52,7 +52,7 @@
 	content: '';
 	height: 3px;
 	width: 0;
-	background: #009688;
+	background: #c7f304;
 	position: absolute;
 	left: 0;
 	bottom: -10px;
@@ -69,8 +69,7 @@ html, body {
 	width: 100%;
 	place-items: center;
 	background: #f2f2f2;
-	background-image:
-		url("https://www.bovary.gr/sites/default/files/styles/thumbnail/public/2020-03/diadromos-nosokomeiou_2.jpg?itok=M50JLvoZ");
+	background-image: url("https://images.megapixl.com/5868/58687572.jpg");
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: cover;
@@ -106,7 +105,7 @@ html, body {
 }
 
 .wrapper form .field {
-	height: 40px;
+	height: 50px;
 	width: 100%;
 	margin-top: 20px;
 	position: relative;
@@ -133,7 +132,7 @@ html, body {
 	left: 20px;
 	color: #999999;
 	font-weight: 400;
-	font-size: 17px;
+	font-size: 20px;
 	pointer-events: none;
 	transform: translateY(-50%);
 	transition: all 0.3s ease;
@@ -141,7 +140,7 @@ html, body {
 
 form .field input:focus ~ label, form .field input:valid ~ label {
 	top: 0%;
-	font-size: 16px;
+	font-size: 20px;
 	color: #009688;
 	background: #fff;
 	transform: translateY(-50%);
@@ -152,14 +151,8 @@ form .content {
 	width: 100%;
 	height: 50px;
 	font-size: 16px;
-	align-items: center;
+	align-items: baseline;
 	justify-content: space-around;
-}
-
-form .content .checkbox {
-	display: flex;
-	align-items: center;
-	justify-content: center;
 }
 
 form .content input {
@@ -190,6 +183,18 @@ form .field input[type="submit"] {
 	transition: all 0.3s ease;
 }
 
+form .field input[type="reset"] {
+	color: #fff;
+	border: none;
+	padding-left: 0;
+	margin-top: -10px;
+	font-size: 20px;
+	font-weight: 500;
+	cursor: pointer;
+	background: linear-gradient(-135deg, #0a3bec, #009688);
+	transition: all 0.3s ease;
+}
+
 form .field input[type="submit"]:active {
 	transform: scale(0.95);
 }
@@ -208,7 +213,15 @@ form .pass-link a, form .signup-link a {
 form .pass-link a:hover, form .signup-link a:hover {
 	text-decoration: underline;
 }
+
+.wrapper form .select {
+	height: 50px;
+	width: 100%;
+	margin-top: 20px;
+	position: center;
+}
 </style>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 </head>
 
 <body>
@@ -221,35 +234,67 @@ form .pass-link a:hover, form .signup-link a:hover {
 				<li><a href="/home">HOME</a></li>&nbsp;&nbsp;&nbsp;
 				<li><a href="/aboutus">ABOUT US</a></li>&nbsp;&nbsp;&nbsp;
 				<li><a href="/admindashboard">ADMIN</a></li>&nbsp;&nbsp;&nbsp;
-				<li><a href="/login">LOGOUT</a></li>&nbsp;&nbsp;&nbsp;
+				<li><a href="/login">LOGOUT</a></li>
+
 			</ul>
 		</div>
 		<CENTER>
+
 			<div class="wrapper">
+				<div class="title">HOSPITAL AVAILABILITY</div>
+				<form action="/admin" method="post">
+					<c:if test="${not empty success }">
+						<div style="color: green;">
+							<h3>${success}
+						</div>
+					</c:if>
+					<c:if test="${not empty error }">
+						<div style="color: red;">
+							<h3>${error}
+						</div>
+					</c:if>
 
-				<div class="title">Hospital List</div>
-				<form action="/updatehospitals/${h.id}" method="post">
-					<input type="hidden" name="id" value="${h.id}">
-					<div class="field">
-						<input type="text" name="hospitalname" value="${h.hospitalname}" />
-						<label>Hospital Name</label>
-					</div>
-					<div class="field">
-						<input type="text" name="location" value="${h.location}" /> <label>Location</label>
-					</div>
-					<div class="field">
-						<input type="text" name="contactnumber" value="${h.contactnumber}" />
-						<label>Contact Number</label>
+					
+				  <div class="select">
+					<label>Hospital Name</label><br/>
+					<select name="hospitalName" style="width: 300px">
+					<option value="none">Select</option>
+					<c:forEach items="${ha}" var="ha"> 
+					<option value=${ha.hospitalname} >${ha.hospitalname}</option> 
+							</c:forEach>  
+							
+						</select>
+						</div>
+					
+
+					<div class="select">
+						<label>Doctor Availability</label><br> <Select
+							name="doctorsAvailability" style="width: 300px">
+							<option value="None">Select</option>
+							<option value="Yes">Yes</option>
+							<option value="No">No</option>
+						</Select>
 					</div>
 
+					<div class="select">
+						<label>Bed Availability</label><br> <Select
+							name="bedAvailability" style="width: 300px">
+							<option value="None">Select</option>
+							<option value="Yes">Yes</option>
+							<option value="No">No</option>
+						</Select>
+                        </div>
+			
+						<div class="field">
+							<input name="location" type="text" /> <label>LOCATION</label>
+						</div>
+					<br>
 					<div class="field">
-						<input type="submit" name="submit" value="Save" />
+						<input name="submit" value="SUBMIT" type="submit" />
 					</div>
-					<div class="field">
-						<input type="submit" name="submit" value="Cancel" />
-					</div>
-				</form>
-				</form>
+					
+		
+           
+            
 </body>
-</div>
 </html>

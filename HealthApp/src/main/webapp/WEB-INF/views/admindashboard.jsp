@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -44,7 +45,7 @@
 
 .navbar ul li a {
 	text-decoration: none;
-	color: #0b0a0b;
+	color: #25a9ca;
 	text-transform: uppercase;
 }
 
@@ -52,7 +53,7 @@
 	content: '';
 	height: 3px;
 	width: 0;
-	background: #009688;
+	background: #25a9ca;
 	position: absolute;
 	left: 0;
 	bottom: -10px;
@@ -70,7 +71,7 @@ html, body {
 	place-items: center;
 	background: #f2f2f2;
 	background-image:
-		url("https://www.bovary.gr/sites/default/files/styles/thumbnail/public/2020-03/diadromos-nosokomeiou_2.jpg?itok=M50JLvoZ");
+		url("https://thumbs.dreamstime.com/z/young-woman-doctor-white-coat-computer-using-portrait-phone-60957339.jpg");
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: cover;
@@ -106,7 +107,7 @@ html, body {
 }
 
 .wrapper form .field {
-	height: 40px;
+	height: 50px;
 	width: 100%;
 	margin-top: 20px;
 	position: relative;
@@ -190,6 +191,18 @@ form .field input[type="submit"] {
 	transition: all 0.3s ease;
 }
 
+form .field input[type="reset"] {
+	color: #fff;
+	border: none;
+	padding-left: 0;
+	margin-top: -10px;
+	font-size: 20px;
+	font-weight: 500;
+	cursor: pointer;
+	background: linear-gradient(-135deg, #0a3bec, #009688);
+	transition: all 0.3s ease;
+}
+
 form .field input[type="submit"]:active {
 	transform: scale(0.95);
 }
@@ -220,36 +233,32 @@ form .pass-link a:hover, form .signup-link a:hover {
 			<ul>
 				<li><a href="/home">HOME</a></li>&nbsp;&nbsp;&nbsp;
 				<li><a href="/aboutus">ABOUT US</a></li>&nbsp;&nbsp;&nbsp;
-				<li><a href="/admindashboard">ADMIN</a></li>&nbsp;&nbsp;&nbsp;
 				<li><a href="/login">LOGOUT</a></li>&nbsp;&nbsp;&nbsp;
+
 			</ul>
 		</div>
 		<CENTER>
+
 			<div class="wrapper">
-
-				<div class="title">Hospital List</div>
-				<form action="/updatehospitals/${h.id}" method="post">
-					<input type="hidden" name="id" value="${h.id}">
-					<div class="field">
-						<input type="text" name="hospitalname" value="${h.hospitalname}" />
-						<label>Hospital Name</label>
-					</div>
-					<div class="field">
-						<input type="text" name="location" value="${h.location}" /> <label>Location</label>
-					</div>
-					<div class="field">
-						<input type="text" name="contactnumber" value="${h.contactnumber}" />
-						<label>Contact Number</label>
-					</div>
-
-					<div class="field">
-						<input type="submit" name="submit" value="Save" />
-					</div>
-					<div class="field">
-						<input type="submit" name="submit" value="Cancel" />
-					</div>
-				</form>
-				</form>
+				<div class="title">ADMIN DASHBOARD</div>
+				<body>
+					<h1 class="display-4">WELCOME ADMIN !</h1>
+					<form action="/admin" method="get">
+						<div class="field">
+							<input name="submit" value="AVAILABILITY" type="submit" />
+						</div>
+					</form>
+					<form action="/hospital" method="get">
+						<div class="field">
+							<input name="submit" value="ADD HOSPITAL" type="submit" />
+						</div>
+					</form>
+					<form action="/hospitallist" method="get">
+						<div class="field">
+							<input name="submit" value="UPDATE HOSPITAL" type="submit" />
+						</div>
+					</form>
+			</div>
 </body>
 </div>
 </html>

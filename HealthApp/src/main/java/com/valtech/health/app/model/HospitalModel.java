@@ -5,13 +5,12 @@ public class HospitalModel {
 	private String hospitalname;
 	private String location;
 	private String contactnumber;
-	
-	
+
 	public HospitalModel() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	public HospitalModel(int id, String hospitalname, String location, String contactnumber) {
 		super();
 		this.id = id;
@@ -19,10 +18,10 @@ public class HospitalModel {
 		this.location = location;
 		this.contactnumber = contactnumber;
 	}
-	
+
 	public HospitalModel(String hospitalname, String location, String contactnumber) {
 		super();
-		
+
 		this.hospitalname = hospitalname;
 		this.location = location;
 		this.contactnumber = contactnumber;
@@ -31,18 +30,23 @@ public class HospitalModel {
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getHospitalname() {
 		return hospitalname;
 	}
+
 	public void setHospitalname(String hospitalname) {
 		this.hospitalname = hospitalname;
 	}
+
 	public String getLocation() {
 		return location;
 	}
+
 	public void setLocation(String location) {
 		this.location = location;
 	}
@@ -61,5 +65,4 @@ public class HospitalModel {
 				+ ", contactnumber=" + contactnumber + "]";
 	}
 
-	
 }

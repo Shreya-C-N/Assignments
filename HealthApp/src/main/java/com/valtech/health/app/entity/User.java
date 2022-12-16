@@ -7,44 +7,34 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
-import javax.validation.constraints.Digits;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
-
-
-
-
 
 @Entity
-@Table(name="User",uniqueConstraints=@UniqueConstraint(columnNames="email"))
+@Table(name = "User", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id;
-	
-	 @NotBlank(message="Name cannot be empty!!")
-	 //@Size(min = 3, max=10,message="User name must be between 3-10 characters!!")
+	@NotBlank(message = "Name cannot be empty!!")
 	private String name;
-
 	private String number;
-	 @Column(nullable=false, unique=true)
-	
+	@Column(nullable = false, unique = true)
 	private String email;
-	 @Column(nullable=false, unique=true)
-	// @Size(min = 3, max=10,message="username must be between 3-10 characters!!")
+	@Column(nullable = false, unique = true)
 	private String username;
-	// @Size(min = 3, max=10,message="password must be between 3-10 characters!!")
 	private String password;
 	private String confirmpassword;
+	private String role;
+	@Column(nullable=true)
+	private int otp;
+
 
 	public User() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public User(String name, String number, String email, String username, String password, String confirmpassword) {
+	public User(String name, String number, String email, String username, String password, String confirmpassword,
+			String role,int otp) {
 		super();
 
 		this.name = name;
@@ -53,10 +43,12 @@ public class User {
 		this.username = username;
 		this.password = password;
 		this.confirmpassword = confirmpassword;
+		this.role = role;
+		this.otp=otp;
 	}
 
 	public User(int id, String name, String number, String email, String username, String password,
-			String confirmpassword) {
+			String confirmpassword, String role,int otp) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -65,6 +57,8 @@ public class User {
 		this.username = username;
 		this.password = password;
 		this.confirmpassword = confirmpassword;
+		this.role = role;
+		this.otp=otp;
 	}
 
 	public int getId() {
@@ -122,7 +116,27 @@ public class User {
 	public void setConfirmpassword(String confirmpassword) {
 		this.confirmpassword = confirmpassword;
 	}
+	public String getRole() {
+		return role;
+	}
 
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public int getOtp() {
+		return otp;
+	}
+
+	public void setOtp(int otp) {
+		this.otp = otp;
+	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ", number=" + number + ", email=" + email + ", username="
+				+ username + ", password=" + password + ", confirmpassword=" + confirmpassword + ", role=" + role + "]";
+	}
 
 
 }

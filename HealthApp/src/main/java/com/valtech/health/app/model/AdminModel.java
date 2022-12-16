@@ -1,48 +1,85 @@
 package com.valtech.health.app.model;
 
 public class AdminModel {
+
 	private int id;
-	private String username;
-	private String password;
-	
-	
-	
+	private String hospitalName;
+	private String location;
+	private String doctorsAvailability;
+	private String bedAvailability;
+
 	public AdminModel() {
-		super();
-		// TODO Auto-generated constructor stub
+
 	}
-	public AdminModel(String username, String password) {
-		super();
-		this.username = username;
-		this.password = password;
-	}
-	public AdminModel(int id, String username, String password) {
+
+	public AdminModel(int id,  String hospitalName,String location, String doctorsAvailability,
+			String bedAvailability) {
 		super();
 		this.id = id;
-		this.username = username;
-		this.password = password;
+		this.hospitalName = hospitalName;
+		this.location=location;
+		this.doctorsAvailability = doctorsAvailability;
+		this.bedAvailability = bedAvailability;
 	}
+
+	public AdminModel( String hospitalName,String location, String doctorsAvailability,
+			String bedAvailability) {
+		super();
+
+		this.hospitalName = hospitalName;
+		this.location=location;
+		this.doctorsAvailability = doctorsAvailability;
+		this.bedAvailability = bedAvailability;
+	}
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
+
 	
+	public String getHospitalName() {
+		return hospitalName;
+	}
+
+	public void setHospitalName(String hospitalName) {
+		this.hospitalName = hospitalName;
+	}
+
+	
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public String getDoctorsAvailability() {
+		return doctorsAvailability;
+	}
+
+	public void setDoctorsAvailability(String doctorsAvailability) {
+		this.doctorsAvailability = doctorsAvailability;
+	}
+
+	public String getBedAvailability() {
+		return bedAvailability;
+	}
+
+	public void setBedAvailability(String bedAvailability) {
+		this.bedAvailability = bedAvailability;
+	}
+
 	@Override
 	public String toString() {
-		return "AdminModel [id=" + id + ", username=" + username + ", password=" + password + "]";
+		return "AmbulanceModel [id=" + id + ",  hospitalName="
+				+ hospitalName + ", location=" + location + ", doctorsAvailability=" + doctorsAvailability
+				+ ", bedAvailability=" + bedAvailability + "]";
 	}
+
+	
 }
